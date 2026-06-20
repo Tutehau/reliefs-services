@@ -1,0 +1,267 @@
+.hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute; inset: 0;
+}
+.heroBg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14,11,8,0.4) 0%,
+    rgba(14,11,8,0.85) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  font-weight: 300;
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+  line-height: 1.1;
+}
+.heroTitle em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.heroSub {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 55ch;
+}
+
+/* PROCESSUS */
+.processus {
+  padding: var(--section-py) 0;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+}
+.sectionTitle em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.etapesList {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.etape {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.etapeReverse {
+  direction: rtl;
+}
+.etapeReverse > * {
+  direction: ltr;
+}
+
+.etapeVisual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.etapeVisual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-lux);
+}
+.etape:hover .etapeVisual img {
+  transform: scale(1.05);
+}
+
+.etapeNum {
+  position: absolute;
+  bottom: 1.5rem; right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(201,164,110,0.25);
+  line-height: 1;
+}
+
+.etapeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.etapeIcon {
+  width: 44px; height: 44px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.etapeTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h2);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.etapeDesc {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+/* MATERIAUX */
+.materiaux {
+  padding: var(--section-py) 0;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.materiauxInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.materiauxText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.materiauxText p {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.materiauxVisual img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+
+/* VALEURS */
+.valeurs {
+  padding: var(--section-py) 0;
+}
+
+.valeursGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.valeurCard {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.valeurTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--accent-light);
+}
+
+.valeurDesc {
+  font-size: var(--t-small);
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* CTA */
+.cta {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-soft);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h2);
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: var(--ls-display);
+}
+
+.ctaDesc {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .etape, .etapeReverse, .materiauxInner { grid-template-columns: 1fr; gap: 2.5rem; direction: ltr; }
+  .etapeReverse > * { direction: ltr; }
+  .valeursGrid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .valeursGrid { grid-template-columns: 1fr; }
+}

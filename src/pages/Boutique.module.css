@@ -1,0 +1,222 @@
+.hero {
+  position: relative;
+  padding: 12rem 0 5rem;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  font-weight: 300;
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+  margin-top: 1.2rem;
+}
+
+.heroSub {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  margin-top: 1rem;
+  max-width: 55ch;
+  line-height: 1.8;
+}
+
+.heroDeco {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at right bottom, rgba(201,164,110,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+/* FILTERS */
+.filterSection {
+  padding: 2.5rem 0;
+  position: sticky;
+  top: 68px;
+  z-index: 100;
+  background: rgba(14, 11, 8, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterIcon {
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.filterBtn {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  border-radius: 100px;
+  transition: all 0.3s var(--ease-lux);
+  cursor: pointer;
+  background: none;
+}
+
+.filterBtn:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.filterActive {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  background: var(--accent-glow);
+}
+
+/* GRID */
+.gridSection {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardImg {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-lux);
+}
+
+.card:hover .cardImg img {
+  transform: scale(1.07);
+}
+
+.cardTag {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 100px;
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.cardSub {
+  font-size: var(--t-small);
+  color: var(--text-muted);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.cardPrice {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--accent-light);
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.3s var(--ease-lux);
+}
+
+.cardCta:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* CUSTOM CTA */
+.customCta {
+  margin-top: 5rem;
+}
+
+.customCtaInner {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.customCtaTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h2);
+  font-weight: 300;
+  color: var(--text);
+}
+
+.customCtaDesc {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  max-width: 50ch;
+  line-height: 1.8;
+}
+
+@media (max-width: 1000px) {
+  .productsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .productsGrid { grid-template-columns: 1fr; }
+  .filterSection { top: 60px; }
+}

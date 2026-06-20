@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.heroBg { position: absolute; inset: 0; }
+.heroBg img { width: 100%; height: 100%; object-fit: cover; }
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(14,11,8,0.92) 40%, rgba(14,11,8,0.5) 100%);
+}
+.heroContent {
+  position: relative; z-index: 1;
+  padding: 5rem 0;
+  display: flex; flex-direction: column; gap: 1.5rem;
+  max-width: 700px;
+}
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  font-weight: 300;
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+  line-height: 1.1;
+}
+.heroTitle em { font-style: italic; color: var(--accent-light); }
+.heroSub { font-size: var(--t-body); color: var(--text-muted); line-height: 1.8; max-width: 55ch; }
+
+/* OFFRES */
+.offres { padding: var(--section-py) 0; }
+.sectionHeader { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: clamp(3rem, 5vw, 5rem); }
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+}
+.sectionTitle em { font-style: italic; color: var(--accent-light); }
+
+.offresGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+.offreCard { padding: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+.offreIcon {
+  width: 48px; height: 48px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+
+.offreTitle {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.offreDesc { font-size: var(--t-small); color: var(--text-muted); line-height: 1.8; }
+
+.offreItems { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.offreItems li {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: var(--t-small); color: var(--text-muted);
+}
+.bullet {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* REFERENCES */
+.references { padding: var(--section-py) 0; background: var(--bg-soft); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+.refGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.refCard { position: relative; border-radius: var(--radius-lg); overflow: hidden; }
+.refImg { aspect-ratio: 4/3; }
+.refImg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease-lux); }
+.refCard:hover .refImg img { transform: scale(1.06); }
+.refOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(14,11,8,0.8) 100%);
+}
+.refLabel {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  font-size: var(--t-label); font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text);
+}
+
+/* AVANTAGES */
+.avantages { padding: var(--section-py) 0; }
+.avantagesInner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.avantagesText { display: flex; flex-direction: column; gap: 1.5rem; }
+.avantagesText p { font-size: var(--t-body); color: var(--text-muted); line-height: 1.85; }
+.avantagesList { display: flex; flex-direction: column; gap: 2rem; }
+.avantageItem { display: flex; gap: 1.5rem; align-items: flex-start; }
+.avantageNum {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+}
+.avantageT { display: block; font-size: var(--t-small); font-weight: 500; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.05em; }
+.avantageD { font-size: var(--t-small); color: var(--text-muted); line-height: 1.7; }
+
+/* CTA */
+.cta { padding: clamp(5rem, 10vw, 9rem) 0; background: var(--bg-elevated); border-top: 1px solid var(--border-soft); }
+.ctaInner { text-align: center; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
+.ctaTitle { font-family: var(--font-display); font-size: var(--t-h2); font-weight: 300; color: var(--text); letter-spacing: var(--ls-display); }
+.ctaDesc { font-size: var(--t-body); color: var(--text-muted); line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .offresGrid { grid-template-columns: 1fr; }
+  .refGrid { grid-template-columns: 1fr; }
+  .avantagesInner { grid-template-columns: 1fr; gap: 3rem; }
+}
