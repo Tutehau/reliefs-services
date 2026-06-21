@@ -1,27 +1,37 @@
 import { useEffect } from 'react'
 
-export function useScrollReveal() {
+export function useScrollReveal(pathname) {
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    )
+    let observer
 
-    const elements = document.querySelectorAll('[data-reveal]')
-    elements.forEach((el) => observer.observe(el))
+    // Small delay so React has committed the new page's DOM before we observe
+    const timer = setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible')
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      )
 
-    return () => observer.disconnect()
-  }, [])
+      // Only observe elements not yet revealed
+      document.querySelectorAll('[data-reveal]:not(.visible)').forEach((el) => {
+        observer.observe(el)
+      })
+    }, 60)
+
+    return () => {
+      clearTimeout(timer)
+      if (observer) observer.disconnect()
+    }
+  }, [pathname])
 }
 
-export function useCursor() {
+export function useCursor(pathname) {
   useEffect(() => {
     const ring = document.querySelector('.cursor-ring')
     const dot = document.querySelector('.cursor-dot')
@@ -37,7 +47,7 @@ export function useCursor() {
     const addHover = () => ring.classList.add('hovering')
     const removeHover = () => ring.classList.remove('hovering')
 
-    document.addEventListener('mousemove', moveCursor)
+    document.addEventListener('mousemove', moveCursor, { passive: true })
 
     const hoverTargets = document.querySelectorAll('a, button, .card-lux, [data-hover]')
     hoverTargets.forEach((el) => {
@@ -52,5 +62,5 @@ export function useCursor() {
         el.removeEventListener('mouseleave', removeHover)
       })
     }
-  })
+  }, [pathname])
 }

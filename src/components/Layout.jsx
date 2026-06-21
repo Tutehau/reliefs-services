@@ -7,8 +7,8 @@ import { useScrollReveal, useCursor } from '../hooks/useAnimations'
 export default function Layout() {
   const { pathname } = useLocation()
 
-  useScrollReveal()
-  useCursor()
+  useScrollReveal(pathname)
+  useCursor(pathname)
 
   useEffect(() => {
     window.scrollTo(0, 0)
